@@ -2,7 +2,7 @@
 export default function MyApp({ Component, pageProps }) {
     // Código comum em todas as telas
     // Parece ser um componente global, e as tela ficam dentro deste
-    
+
     return (
         <>
             <GlobalStyle />

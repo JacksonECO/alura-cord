@@ -1,5 +1,9 @@
 {
-    "name": "Aluracord - Matrix (peas)",
+    "name": "Aluracord - Matrix",
+    "backgroundImg":{
+        "matrix": "url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)",
+        "smith": "url(https://temalguemassistindo.com.br/wp-content/uploads/2020/09/matrix.jpg)"
+    },
     "theme": {
         "colors": {
             "primary": {
