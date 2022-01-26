@@ -1,11 +1,8 @@
-import { Box, Text, TextField, Image, Button } from '@skynexui/components';
+import { Box, Text, TextField, Image, Button, Icon } from '@skynexui/components';
 import React from 'react';
 import appConfig from '../config.json';
 
 export default function ChatPage() {
-    // Sua lógica vai aqui
-
-    // ./Sua lógica vai aqui
 
     const [getMessage, setMessage] = React.useState('');
     const [getListMessage, setListMessage] = React.useState([]);
@@ -18,13 +15,13 @@ export default function ChatPage() {
         const message = {
             text: newMessage,
             from: 'JacksonECO',
-            id: getListMessage.length,
+            id: new Date().getMilliseconds().toString() + getListMessage.length,
             date: new Date().toLocaleDateString(),
         }
 
         setListMessage([
             message,
-            ...getListMessage, 
+            ...getListMessage,
         ]);
         setMessage('');
     }
@@ -68,13 +65,10 @@ export default function ChatPage() {
                     }}
                 >
 
-                    <MessageList messages={getListMessage} />
-                    {/* 
-                    {getListMessage.map((value) =>
-                        <li>
-                            {value.from} : {value.text}
-                        </li>
-                    )} */}
+                    <MessageList
+                        messages={getListMessage}
+                        setMessages={setListMessage}
+                    />
 
                     <Box
                         as="form"
@@ -87,7 +81,7 @@ export default function ChatPage() {
                             value={getMessage}
                             onChange={(value) => setMessage(value.target.value)}
                             onKeyPress={(value) => {
-                                if (value['key'] == 'Enter') {
+                                if (value['key'] == 'Enter' && value.shiftKey == false) {
                                     value.preventDefault();
                                     handleNewMessage(getMessage);
                                 }
@@ -131,6 +125,7 @@ function Header() {
 }
 
 function MessageList(props) {
+
     return (
         <Box
             tag="ul"
@@ -146,10 +141,22 @@ function MessageList(props) {
         >
 
             {props.messages.map((message) =>
+                <Box
+                    key={message.id}
+                    tag="ul"
+                    styleSheet={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        color: appConfig.theme.colors.neutrals["000"],
+                        // marginBottom: '16px',
+                    }}
+                >
+
                     <Text
                         key={message.id}
                         tag="li"
                         styleSheet={{
+                            flex: 50,
                             borderRadius: '5px',
                             padding: '6px',
                             marginBottom: '12px',
@@ -171,8 +178,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/${message.from}.png`}
-                            />
+                                src={`https://github.com/${message.from}.png`} />
                             <Text tag="strong">
                                 {message.from}
                             </Text>
@@ -189,6 +195,29 @@ function MessageList(props) {
                         </Box>
                         {message.text}
                     </Text>
+
+                    <Box
+                        styleSheet={{
+                            flex: 1,
+                            display: 'flex',
+                            crossAxisAlignment: 'flex-start',
+                            marginRight: '5px',
+                            fontSize: '10px',
+                        }}
+                    >
+
+                        <Button
+                            onClick={() => {
+                                props.messages.splice(props.messages.indexOf(message), 1);
+                                props.setMessages([...props.messages]);
+                            }}
+                            label='[x]'
+                            buttonColors={{
+                                contrastColor: '',
+                                mainColor: 'transparent',
+                            }} />
+                    </Box>
+                </Box>
 
             )}
 
