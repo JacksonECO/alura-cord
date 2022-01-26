@@ -1,6 +1,6 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components'
 import React from 'react';
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import appConfig from '../config.json'
 
 
@@ -71,6 +71,12 @@ export default function PaginaInicial() {
                             event.preventDefault();
                             /// Código padrão, funciona no console do navegador;
                             // window.location.href = '/chat';
+                            // const name = NameRequest;
+                            // name.a();
+                            // Name.a();
+
+
+
                             router.push('/chat');
                         }}
                         styleSheet={{
@@ -78,7 +84,7 @@ export default function PaginaInicial() {
                             width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
                         }}
                     >
-                        <Titulo tag="h2" sizeText ="28px">Boas vindas de volta!</Titulo>
+                        <Titulo tag="h2" sizeText="28px">Boas vindas de volta!</Titulo>
                         <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
                             {appConfig.name}
                         </Text>
@@ -96,6 +102,13 @@ export default function PaginaInicial() {
                             }}
                             type="text" value={username} onChange={function (a) {
                                 setUsername(a.target.value);
+
+                                // fetch('https://api.github.com/users/' + username).then((response) => response.json()).then(function (response) {
+                                //     console.log(response['name']);
+                                // }).catch(function (e) {
+                                //     console.log('Erro requestName');
+                                // });
+
                             }}
                         />
 
@@ -137,6 +150,7 @@ export default function PaginaInicial() {
                                 marginBottom: '16px',
                             }}
                             src={`https://github.com/${username}.png`}
+
                         />
                         <Text
                             variant="body4"
