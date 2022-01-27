@@ -167,11 +167,12 @@ function MessageList(props) {
                         // marginBottom: '16px',
                     }}
                 >
-
                     <Text
                         key={message.id}
                         tag="li"
                         styleSheet={{
+                            display: 'flex',
+                            flexDirection: 'column',
                             flex: 50,
                             borderRadius: '5px',
                             padding: '6px',
@@ -195,9 +196,11 @@ function MessageList(props) {
                                     marginRight: '8px',
                                 }}
                                 src={`https://github.com/${message.from}.png`} />
+
                             <Text tag="strong">
                                 {message.from}
                             </Text>
+
                             <Text
                                 styleSheet={{
                                     fontSize: '10px',
@@ -209,7 +212,11 @@ function MessageList(props) {
                                 {message.date}
                             </Text>
                         </Box>
-                        {message.text}
+                        
+                        {/* Mensagens com várias linhas (shift+enter) */}
+                        {message.text.split('\n').map((linha) => linha == '' ? <br/> : <Text>{linha}</Text> )}
+
+
                     </Text>
 
                     <Box
