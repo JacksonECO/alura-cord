@@ -1,11 +1,20 @@
 import { Box, Text, TextField, Image, Button, Icon } from '@skynexui/components';
 import React from 'react';
 import appConfig from '../config.json';
+import Supabase from '../class/supabase';
+
 
 export default function ChatPage() {
 
+    const supabase = new Supabase();
+
     const [getMessage, setMessage] = React.useState('');
     const [getListMessage, setListMessage] = React.useState([]);
+
+    React.useEffect(() => supabase.get().then(({ data }) => {
+        setListMessage(data);
+    }
+    ), []);
 
     function handleNewMessage(newMessage) {
 
@@ -13,11 +22,16 @@ export default function ChatPage() {
         if (newMessage == '') return;
 
         const message = {
-            text: newMessage,
-            from: 'JacksonECO',
+            texto: newMessage,
+            de: 'JacksonECO',
             id: new Date().getMilliseconds().toString() + getListMessage.length,
-            date: new Date().toLocaleDateString(),
+            created_at: new Date().toISOString(),
         }
+
+        supabase.set({
+            texto: message['texto'],
+            de: message['de'],
+        });
 
         setListMessage([
             message,
@@ -157,90 +171,96 @@ function MessageList(props) {
         >
 
             {props.messages.map((message) =>
-                <Box
-                    key={message.id}
-                    tag="ul"
-                    styleSheet={{
-                        display: 'flex',
-                        flexDirection: 'row',
-                        color: appConfig.theme.colors.neutrals["000"],
-                        // marginBottom: '16px',
-                    }}
-                >
-                    <Text
-                        key={message.id}
-                        tag="li"
+                {
+                    const date = new Date();
+                    date.setMilliseconds = Date.parse(message.created_at);
+
+                    return <Box
+                        // key={message.id}
+                        tag="ul"
                         styleSheet={{
                             display: 'flex',
-                            flexDirection: 'column',
-                            flex: 50,
-                            borderRadius: '5px',
-                            padding: '6px',
-                            marginBottom: '12px',
-                            hover: {
-                                backgroundColor: appConfig.theme.colors.neutrals[700],
-                            }
+                            flexDirection: 'row',
+                            color: appConfig.theme.colors.neutrals["000"],
+                            // marginBottom: '16px',
                         }}
                     >
-                        <Box
+                        <Text
+                            key={message.id}
+                            tag="li"
                             styleSheet={{
-                                marginBottom: '8px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                flex: 50,
+                                borderRadius: '5px',
+                                padding: '6px',
+                                marginBottom: '12px',
+                                hover: {
+                                    backgroundColor: appConfig.theme.colors.neutrals[700],
+                                }
                             }}
                         >
-                            <Image
+                            <Box
                                 styleSheet={{
-                                    width: '20px',
-                                    height: '20px',
-                                    borderRadius: '50%',
-                                    display: 'inline-block',
-                                    marginRight: '8px',
+                                    marginBottom: '8px',
                                 }}
-                                src={`https://github.com/${message.from}.png`} />
-
-                            <Text tag="strong">
-                                {message.from}
-                            </Text>
-
-                            <Text
-                                styleSheet={{
-                                    fontSize: '10px',
-                                    marginLeft: '8px',
-                                    color: appConfig.theme.colors.neutrals[300],
-                                }}
-                                tag="span"
                             >
-                                {message.date}
-                            </Text>
-                        </Box>
-                        
-                        {/* Mensagens com várias linhas (shift+enter) */}
-                        {message.text.split('\n').map((linha) => linha == '' ? <br/> : <Text>{linha}</Text> )}
+                                <Image
+                                    styleSheet={{
+                                        width: '20px',
+                                        height: '20px',
+                                        borderRadius: '50%',
+                                        display: 'inline-block',
+                                        marginRight: '8px',
+                                    }}
+                                    src={`https://github.com/${message.de}.png`} />
+
+                                <Text tag="strong">
+                                    {message.de}
+                                </Text>
+
+                                <Text
+                                    styleSheet={{
+                                        fontSize: '10px',
+                                        marginLeft: '8px',
+                                        color: appConfig.theme.colors.neutrals[300],
+                                    }}
+                                    tag="span"
+                                >
+                                    {date.toLocaleDateString()}
+
+                                </Text>
+                            </Box>
+
+                            {/* Mensagens com várias linhas (shift+enter) */}
+                            {message.texto.split('\n').map((linha) => linha == '' ? <br /> : <Text>{linha}</Text>)}
 
 
-                    </Text>
+                        </Text>
 
-                    <Box
-                        styleSheet={{
-                            flex: 1,
-                            display: 'flex',
-                            crossAxisAlignment: 'flex-start',
-                            marginRight: '5px',
-                            fontSize: '10px',
-                        }}
-                    >
-
-                        <Button
-                            onClick={() => {
-                                props.messages.splice(props.messages.indexOf(message), 1);
-                                props.setMessages([...props.messages]);
+                        <Box
+                            styleSheet={{
+                                flex: 1,
+                                display: 'flex',
+                                crossAxisAlignment: 'flex-start',
+                                marginRight: '5px',
+                                fontSize: '10px',
                             }}
-                            label='[x]'
-                            buttonColors={{
-                                contrastColor: '',
-                                mainColor: 'transparent',
-                            }} />
-                    </Box>
-                </Box>
+                        >
+
+                            <Button
+                                onClick={() => {
+                                    props.messages.splice(props.messages.indexOf(message), 1);
+                                    props.setMessages([...props.messages]);
+                                } }
+                                label='[x]'
+                                buttonColors={{
+                                    contrastColor: '',
+                                    mainColor: 'transparent',
+                                }} />
+                        </Box>
+                    </Box>;
+                }
 
             )}
 
