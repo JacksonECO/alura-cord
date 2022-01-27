@@ -23,6 +23,7 @@ export default function ChatPage() {
             message,
             ...getListMessage,
         ]);
+
         setMessage('');
     }
 
@@ -75,6 +76,8 @@ export default function ChatPage() {
                         styleSheet={{
                             display: 'flex',
                             alignItems: 'center',
+                            flexDirection: 'row',
+                            crossAxisAlignment: 'flex-start'
                         }}
                     >
                         <TextField
@@ -97,6 +100,19 @@ export default function ChatPage() {
                                 backgroundColor: appConfig.theme.colors.neutrals[800],
                                 marginRight: '12px',
                                 color: appConfig.theme.colors.neutrals[200],
+                            }}
+                        />
+                        <Button
+                            onClick={() => handleNewMessage(getMessage)}
+                            styleSheet={{
+                                padding: '12px',
+                            }}
+                            label='Enviar'
+                            buttonColors={{
+                                contrastColor: appConfig.theme.colors.neutrals["000"],
+                                mainColor: appConfig.theme.colors.primary[500],
+                                mainColorLight: appConfig.theme.colors.primary[400],
+                                mainColorStrong: appConfig.theme.colors.primary[600],
                             }}
                         />
                     </Box>
