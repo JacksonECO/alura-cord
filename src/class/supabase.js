@@ -21,7 +21,18 @@ export default class Supabase {
     async set(data) {
         return await this.client
             .from(this.SUPABASE_TABLE)
-            .insert([data])
+            .insert(data)
+            .then((response) => {
+                console.log(response);
+                return response;
+            });
+    }
+
+    async delete(data) {
+        return await this.client
+            .from(this.SUPABASE_TABLE)
+            .delete(false)
+            .match(data)
             .then((response) => {
                 console.log(response);
                 return response;
@@ -32,6 +43,7 @@ export default class Supabase {
         return this.client
             .from(this.SUPABASE_TABLE)
             .on('INSERT', onChanger)
+            .on('DELETE', onChanger)
             .subscribe();
     }
 }

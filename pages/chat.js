@@ -21,7 +21,7 @@ export default function ChatPage() {
       .then(({ data }) => {
         setListMessage(data);
       });
-    supabase.lister(()=> supabase
+    supabase.lister(() => supabase
       .get()
       .then(({ data }) => {
         setListMessage(data);
@@ -95,6 +95,11 @@ export default function ChatPage() {
           <MessageList
             messages={getListMessage}
             setMessages={setListMessage}
+            username={username}
+            onRemove={(data) => { 
+              console.log(data);
+              supabase.delete(data);
+            }}
           />
 
           <Box
@@ -279,16 +284,17 @@ function MessageList(props) {
             }}
           >
 
-            <Button
+            { (props.username=='admin' || props.username == message.de) && <Button
               onClick={() => {
                 props.messages.splice(props.messages.indexOf(message), 1);
                 props.setMessages([...props.messages]);
+                props.onRemove(message);
               }}
               label='[x]'
               buttonColors={{
                 contrastColor: '',
                 mainColor: 'transparent',
-              }} />
+              }} />}
           </Box>
         </Box>;
       }
