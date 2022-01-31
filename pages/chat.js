@@ -56,10 +56,11 @@ export default function ChatPage() {
   return (
     <Box
       styleSheet={{
+        onClick: ()=>console.log('qwe'),
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         backgroundColor: appConfig.theme.colors.primary[500],
         backgroundImage: appConfig.backgroundImg.matrix,
-        backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+        backgroundRepeat: 'no-repeat', r: 'cover', backgroundBlendMode: 'multiply',
         color: appConfig.theme.colors.neutrals['000']
       }}
     >
@@ -143,6 +144,7 @@ export default function ChatPage() {
             <Button
               onClick={() => handleNewMessage(getMessage)}
               styleSheet={{
+                marginLeft: '10px',
                 padding: '12px',
               }}
               label='Enviar'
