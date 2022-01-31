@@ -1,8 +1,10 @@
 {
-    "name": "Aluracord - Matrix",
-    "backgroundImg":{
-        "matrix": "url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)",
-        "smith": "url(https://temalguemassistindo.com.br/wp-content/uploads/2020/09/matrix.jpg)"
+    "title": "O quê podemos te ajudar hoje?*",
+    "name": "Condomínio: AluraCord",
+    "backgroundImg": {
+        "home": "url(https://www.tecnisa.com.br/blog/wp-content/uploads/2019/07/Leis-de-condominio-Arruda.jpg)",
+        "predio": "url(https://pc.lello.com.br/blog/wp-content/uploads/2018/04/Lello-im%C3%B3veis.jpg)",
+        "destruido": "url(https://cdn6.campograndenews.com.br/uploads/noticias/2020/05/31/216d6b647e02ec2134ffd6c71dfd8bea9223d7ed.jpg)"
     },
     "theme": {
         "colors": {

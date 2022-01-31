@@ -56,12 +56,11 @@ export default function ChatPage() {
   return (
     <Box
       styleSheet={{
-        onClick: ()=>console.log('qwe'),
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        backgroundColor: appConfig.theme.colors.primary[500],
-        backgroundImage: appConfig.backgroundImg.matrix,
+        // backgroundColor: appConfig.theme.colors.primary[500],
+        backgroundImage: appConfig.backgroundImg.predio,
         backgroundRepeat: 'no-repeat', r: 'cover', backgroundBlendMode: 'multiply',
-        color: appConfig.theme.colors.neutrals['000']
+        color: appConfig.theme.colors.neutrals['700']
       }}
     >
       <Box
@@ -69,13 +68,13 @@ export default function ChatPage() {
           display: 'flex',
           flexDirection: 'column',
           flex: 1,
-          boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-          borderRadius: '5px',
-          backgroundColor: appConfig.theme.colors.neutrals[700],
-          height: '100%',
-          maxWidth: '95%',
+          boxShadow: '0 2px 50px 0 rgb(0 0 0 / 80%)',
+          borderRadius: '10px',
+          backgroundColor: appConfig.theme.colors.neutrals[400],
+          height: '88%',
+          maxWidth: '90%',
           maxHeight: '95vh',
-          padding: '32px',
+          padding: '30px',
         }}
       >
         <Header />
@@ -85,8 +84,8 @@ export default function ChatPage() {
             position: 'relative',
             display: 'flex',
             flex: 1,
-            height: '80%',
-            backgroundColor: appConfig.theme.colors.neutrals[600],
+            height: '90%',
+            backgroundColor: appConfig.theme.colors.neutrals[500],
             flexDirection: 'column',
             borderRadius: '5px',
             padding: '16px',
@@ -97,7 +96,7 @@ export default function ChatPage() {
             messages={getListMessage}
             setMessages={setListMessage}
             username={username}
-            onRemove={(data) => { 
+            onRemove={(data) => {
               console.log(data);
               supabase.delete(data);
             }}
@@ -286,7 +285,7 @@ function MessageList(props) {
             }}
           >
 
-            { (props.username=='admin' || props.username == message.de) && <Button
+            {(props.username == 'admin' || props.username == message.de) && <Button
               onClick={() => {
                 props.messages.splice(props.messages.indexOf(message), 1);
                 props.setMessages([...props.messages]);
