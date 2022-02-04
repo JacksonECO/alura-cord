@@ -11,17 +11,17 @@ Como forma de customização foi colocado um tema de um chat para condomínio e 
 <br/>
 <br/>
 
-# Aula 1: Matrix Chat: Criando o nosso projeto Aluracord
+## Aula 1: Matrix Chat: Criando o nosso projeto Aluracord
 
 
-## Detalhes desta aula
+### Detalhes desta aula
 Nesta primeira aula de React começaremos a fazer a nossa área de login no Aluracord! E você vai colocá-la no ar!
 
 Nesta aula vamos criar tudo do ZERO: desde o package.json até os arquivos bases do Next.js para iniciar nosso projeto e ter o CSS in JS com styled-jsx para cuidar da camada de estilo da nossa aplicação, duas ferramentas essenciais do mundo React. Também entenderemos como React se tornou tão popular no mercado de tecnologia e como iniciar o nosso aprendizado com a tecnologia.
 
 <br/>
 
-## Conteúdo detalhado desta aula
+### Conteúdo detalhado desta aula
 - Iniciaremos um projeto Next.js;
 - Criaremos components com React usando CSS in JS;
 - Vamos ver a estrutura inicial de um projeto Next.js;
@@ -33,7 +33,7 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 
 <br/>
 
-## Desafios desta aula!
+### Desafios desta aula!
 - Customizar o Aluracord com o SEU tema, seu background do assunto favorito (Filmes, Séries, Esportes, o desenho do coração) e compartilhar com a gente!, lembre-se de usar o Coolors que indicamos nesta aula, para gerar a paleta de cores.
 - Nosso arquivo de config com a parte das cores para você fazer o seu tema está aqui, use-o como base 😍
 - Customizar o Aluracord com o SEU tema, seu background do assunto favorito (Filmes, Séries, Esportes, o desenho do coração) e compartilhar com a gente!, lembre-se de usar o Coolors que indicamos nesta aula, para gerar a paleta de cores.
@@ -43,14 +43,14 @@ Link para o Figma: [https://www.figma.com](https://www.figma.com/file/X5kVg1hNCa
 <br/>
 <br/>
 
-# Aula 2: State, novas páginas e navegação SPA vs a Tradicional
+## Aula 2: State, novas páginas e navegação SPA vs a Tradicional
 
-## Detalhes desta aula
+### Detalhes desta aula
 Nesta aula aprenderemos a lidar com o state do React e entender melhor o que é uma SPA (Single Page Application).
 
 <br/>
 
-## Conteúdo detalhado desta aula
+### Conteúdo detalhado desta aula
 - Entender melhor o que é um SPA;
 - Conhecer o useState do React;
 - Como trabalhar com eventos no React onSubmit, onClick;
@@ -62,7 +62,7 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 
 <br/>
 
-## Desafios desta aula!
+### Desafios desta aula!
 - Pratique mais com o useRouter!
 - Validação do campo: Só mostrar a imagem se tiver mais de 2 caracteres
 - Desafio Master: Pegar outras informações do usuário batendo na API do GitHub
@@ -73,14 +73,14 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 <br/>
 <br/>
 
-# Aula 3: Chat offline? Aprimorando as habilidades com State
+## Aula 3: Chat offline? Aprimorando as habilidades com State
 
-## Detalhes desta aula
+### Detalhes desta aula
 Nesta aula vamos criar a estrutura do nosso chat e fazer ele funcionar inicialmente sem nenhum Back-End. Explicaremos também muitos conceitos de Front-End que funcionam em diversos tipos de projetos. Você vai perceber como ser Dev em T facilita muito a sua vida como programador ou programadora!
 
 <br/>
 
-## Conteúdo detalhado desta aula
+### Conteúdo detalhado desta aula
 - Entender um pouco mais de como podemos trabalhar com state no React;
 - Trabalhar com arrays no state;
 - Criar um campo que ao apertamos o "Enter", faz o submit das informações;
@@ -91,7 +91,7 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 
 <br/>
 
-## Desafios desta aula!
+### Desafios desta aula!
 - Paulo: Colocar o botão de OK para enviar a mensagem
 - Mario: Colocar um botão de apagar mensagem! Dica: use o filter
 
@@ -100,14 +100,14 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 <br/>
 <br/>
 
-# Aula 4: Integrando com o Supabase.io
+## Aula 4: Integrando com o Supabase.io
 
-## Detalhes desta aula
+### Detalhes desta aula
 Nesta aula vamos integrar com o Supabase! Uma ferramenta de "Back-End as a Service" que vai nos ajudar a ter um banco de dados real time para guardar as mensagens do nosso chat.
 
 <br/>
 
-## Conteúdo detalhado desta aula
+### Conteúdo detalhado desta aula
 - AJAX e o que é?
 - Supabase
 - Aba network para debugarmos requests HTTP
@@ -119,7 +119,7 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 
 <br/>
 
-## Desafios desta aula!
+### Desafios desta aula!
 - Mario Souto: Mostrar o loading de mensagens (Tem que fazer o mais criativo ein!)
 - Paulo Silveira: Fazer um efeito quando passar o mouse em cima (Use esse link como referência: https://pt-br.reactjs.org/docs/events.html#mouse-events)
 - Se quiser tentar criar alguma coisa mais diferentona, fique a vontade para criar e compartilhe com a gente :)
@@ -129,9 +129,9 @@ Também entre no nosso server do Discord para compartilhar seus resultados e tir
 <br/>
 <br/>
 
-# Aula 5: Adicionando suporte para Stickers e dicas essenciais para próximos passos
+## Aula 5: Adicionando suporte para Stickers e dicas essenciais para próximos passos
 
-## Detalhes desta aula
+### Detalhes desta aula
 E estamos chegando ao fim da nossa imersão... Mas não é pra ficar triste! Nesta aula vamos falar sobre:
 
 - Web Sockets
@@ -141,5 +141,5 @@ E estamos chegando ao fim da nossa imersão... Mas não é pra ficar triste! Nes
 
 <br/>
 
-## Desafios
+### Desafios
 - Agora é com você! Adicione o que você achar de mais legal no projeto e compartilha com a gente no twitter! Estamos extremamente orgulhosos de ver tudo o que vocês estão criando e compartilhando.
